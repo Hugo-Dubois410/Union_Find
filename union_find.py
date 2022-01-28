@@ -72,7 +72,7 @@ pixels = list(image.getdata())
 bps = []
 for y in range(height-2,2,-1):
     for x in range(width):
-        if pixels[y*width+x] >128:
+        if pixels[y*width+x] < 128:
             pixels[y*width+x] = Node((x,y))
             bps.append((x,y))
 for i,j in bps:
@@ -97,9 +97,13 @@ for x,y in bps:
 
 d = sorted(d.values(),key=lambda x: x[0])
 
+'''
 for t in d:
     try:
         image.crop(t).show()
     except:
         pass
 
+'''
+
+print(len(d))
